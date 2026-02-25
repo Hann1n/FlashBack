@@ -1,9 +1,10 @@
-# 대용량 데이터 (별도 다운로드)
+# Data (download separately)
 data/
 
-# reports 내 대용량 파일 (MP4, HTML)
+# Reports (generated, keep only JSON)
 reports/*.mp4
 reports/*.html
+reports/*.jpg
 
 # Python
 __pycache__/
@@ -12,7 +13,7 @@ __pycache__/
 .eggs/
 *.egg-info/
 
-# 환경
+# Environment
 .env
 .venv/
 venv/

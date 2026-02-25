@@ -12,16 +12,17 @@ import sys
 from pathlib import Path
 
 BASE_DIR = Path(r"D:\Program Files\isaacsim\cookbook\firetrace")
+SRC_DIR = BASE_DIR / "src"
 
 
 def run_step(script, description):
     print(f"\n{'='*60}")
     print(f"  Step: {description}")
-    print(f"  Script: {script}")
+    print(f"  Script: src/{script}")
     print(f"{'='*60}\n")
 
     result = subprocess.run(
-        [sys.executable, str(BASE_DIR / script)],
+        [sys.executable, str(SRC_DIR / script)],
         cwd=str(BASE_DIR),
     )
 
@@ -51,11 +52,11 @@ def main():
             print(f"\n  Existing results found: {results_path}")
             print(f"  Using --skip-inference (results already available)")
         else:
-            print(f"\n  No existing results. Run fire_detection.py separately first.")
+            print(f"\n  No existing results. Run src/detection.py separately first.")
 
-    steps.append(("visualize_origin.py", "Fire origin visualization"))
-    steps.append(("firetrace_dashboard.py", "Dashboard generation"))
-    steps.append(("firetrace_fiftyone.py", "FiftyOne dataset building"))
+    steps.append(("visualize.py", "Fire origin visualization"))
+    steps.append(("dashboard.py", "Dashboard generation"))
+    steps.append(("fiftyone_builder.py", "FiftyOne dataset building"))
 
     results = {}
     for script, desc in steps:
@@ -72,11 +73,10 @@ def main():
     print(f"  Origin images:  reports/origin_*.jpg")
     print(f"  Temporal strips: reports/temporal_*.jpg")
     print(f"  Dashboard:      reports/firetrace_dashboard.html")
-    print(f"  FiftyOne:       firetrace_origin, firetrace_videos, firetrace_overlays")
 
     if args.launch:
         print(f"\n  Launching FiftyOne app...")
-        run_step("firetrace_fiftyone.py --launch", "FiftyOne app")
+        run_step("fiftyone_builder.py --launch", "FiftyOne app")
 
     print(f"{'='*60}")
 

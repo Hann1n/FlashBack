@@ -23,7 +23,7 @@ DATA_DIR = Path(r"D:\Program Files\isaacsim\cookbook\data\fire_detection_aihub\S
 RAW_BASE = DATA_DIR / "01.원천데이터" / "화재현상"
 NEW_DATA_DIR = BASE_DIR / "data" / "fire_dataset"
 OUTPUT_DIR = BASE_DIR / "reports"
-DEMO_PATH = BASE_DIR / "demo" / "firetrace_demo.mp4"
+DEMO_PATH = BASE_DIR / "demo" / "demo.mp4"
 
 W, H = 1920, 1080
 FPS = 30
