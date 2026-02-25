@@ -1,4 +1,4 @@
-"""FireTrace: Inference on new fire detection datasets.
+"""FlashBack: Inference on new fire detection datasets.
 
 Processes videos from:
 1. archive.zip - 3 sample videos with per-frame bounding box annotations (markup.json)
@@ -313,7 +313,7 @@ def evaluate_prediction(predicted, gt_class, gt_origin_x=None, gt_origin_y=None)
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="FireTrace: New Dataset Inference")
+    parser = argparse.ArgumentParser(description="FlashBack: New Dataset Inference")
     parser.add_argument("--model", default="nvidia/Cosmos-Reason2-2B")
     parser.add_argument("--fps", type=int, default=1)
     parser.add_argument("--max-tokens", type=int, default=1024)
@@ -322,7 +322,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 60)
-    print("FireTrace: New Dataset Inference")
+    print("FlashBack: New Dataset Inference")
     print(f"  Model: {args.model}")
     print(f"  Inference FPS: {args.fps}")
     print("=" * 60)

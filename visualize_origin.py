@@ -1,4 +1,4 @@
-"""FireTrace: Fire origin visualization on representative frames.
+"""FlashBack: Fire origin visualization on representative frames.
 
 Loads the middle frame from each fire scene, draws the predicted origin
 marker and spread arrows, then saves annotated images.
@@ -205,8 +205,8 @@ def draw_info_panel(img, scene_id, gt_class, prediction, evaluation):
     cv2.putText(img, f"Severity: {severity}  |  Urgency: {urgency}  |  Origin: {origin_text}",
                 (left, y_base + 30), FONT, 0.5, (180, 180, 180), 1, cv2.LINE_AA)
 
-    # FireTrace badge
-    badge = "FireTrace"
+    # FlashBack badge
+    badge = "FlashBack"
     (bw, bh), _ = cv2.getTextSize(badge, FONT, 0.6, 2)
     bx = w - bw - 30
     by = y_base
@@ -305,7 +305,7 @@ def create_temporal_strip(scene_id, gt_class, origin_x, origin_y, output_path, v
 
 def main():
     print("=" * 60)
-    print("FireTrace: Fire Origin Visualization")
+    print("FlashBack: Fire Origin Visualization")
     print("=" * 60)
 
     if not RESULTS_PATH.exists():

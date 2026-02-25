@@ -1,4 +1,4 @@
-"""FireTrace: Interactive Streamlit Dashboard.
+"""FlashBack: Interactive Streamlit Dashboard.
 
 Clean, light-themed dashboard for fire origin tracing results.
 Run: streamlit run firetrace_app.py --server.port 8501 --server.headless true
@@ -102,7 +102,7 @@ def render_result_icon(ok):
 
 def main():
     st.set_page_config(
-        page_title="FireTrace",
+        page_title="FlashBack",
         page_icon="🔥",
         layout="wide",
         initial_sidebar_state="expanded",
@@ -167,8 +167,8 @@ def main():
     # ==================== HEADER ====================
     st.markdown("""
     <div class="firetrace-header">
-        <h1>🔥 FireTrace</h1>
-        <p>Fire Origin Tracing with Physics-Aware Temporal Reasoning &mdash; NVIDIA Cosmos-Reason2</p>
+        <h1>🔥 FlashBack</h1>
+        <p>Rewinding Fire to Its Origin &mdash; Physics-Aware Temporal Reasoning | NVIDIA Cosmos-Reason2</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -562,7 +562,7 @@ def main():
     st.markdown("<div style='height:24px'></div>", unsafe_allow_html=True)
     st.markdown("""
     <div style="text-align:center; color:#9CA3AF; font-size:13px; padding:16px 0;">
-        FireTrace &mdash; Fire Origin Tracing with NVIDIA Cosmos-Reason2 | Cosmos Cookoff 2026
+        FlashBack &mdash; Rewinding Fire to Its Origin with NVIDIA Cosmos-Reason2 | Cosmos Cookoff 2026
     </div>
     """, unsafe_allow_html=True)
 

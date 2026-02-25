@@ -1,8 +1,8 @@
-"""FireTrace: Complete pipeline runner.
+"""FlashBack: Complete pipeline runner.
 
-Runs all FireTrace steps:
+Runs all FlashBack steps:
 1. Visualize fire origin on representative frames
-2. Generate FireTrace dashboard (HTML)
+2. Generate FlashBack dashboard (HTML)
 3. Build FiftyOne datasets
 4. (Optional) Launch FiftyOne app
 """
@@ -33,14 +33,14 @@ def run_step(script, description):
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="FireTrace Pipeline")
+    parser = argparse.ArgumentParser(description="FlashBack Pipeline")
     parser.add_argument("--launch", action="store_true", help="Launch FiftyOne after building")
     parser.add_argument("--skip-inference", action="store_true",
                         help="Skip Cosmos inference (use existing results)")
     args = parser.parse_args()
 
     print("=" * 60)
-    print("FireTrace: Fire Origin Tracing Pipeline")
+    print("FlashBack: Fire Origin Tracing Pipeline")
     print("=" * 60)
 
     steps = []
@@ -63,7 +63,7 @@ def main():
         results[script] = "OK" if ok else "FAILED"
 
     print(f"\n{'='*60}")
-    print("FireTrace Pipeline Summary")
+    print("FlashBack Pipeline Summary")
     print(f"{'='*60}")
     for script, status in results.items():
         print(f"  {script:35s} {status}")

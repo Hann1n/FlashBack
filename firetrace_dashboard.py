@@ -1,4 +1,4 @@
-"""FireTrace Dashboard Generator.
+"""FlashBack Dashboard Generator.
 
 Creates a standalone HTML dashboard for fire origin tracing results.
 Embeds origin visualization images as base64 for portable single-file output.
@@ -163,7 +163,7 @@ def generate_dashboard(data):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FireTrace Dashboard</title>
+<title>FlashBack Dashboard</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 :root {{ --bg:#0a0a0f; --card:#141420; --border:#1e1e30; --text:#e4e4e7; --muted:#9ca3af;
@@ -215,8 +215,8 @@ details summary {{ cursor:pointer; color:var(--accent); font-size:14px; outline:
 <body>
 
 <div class="header">
-    <h1>FireTrace</h1>
-    <div class="sub">Fire Origin Tracing with Physics-Aware Temporal Reasoning</div>
+    <h1>FlashBack</h1>
+    <div class="sub">Rewinding Fire to Its Origin &mdash; Physics-Aware Temporal Reasoning</div>
     <div class="badge">NVIDIA Cosmos-Reason2 &mdash; Cosmos Cookoff 2026</div>
 </div>
 
@@ -258,7 +258,7 @@ details summary {{ cursor:pointer; color:var(--accent); font-size:14px; outline:
 <div class="grid g1">{reasoning_cards}</div>
 
 <div style="text-align:center;margin-top:50px;padding:20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);">
-    FireTrace &mdash; Fire Origin Tracing with NVIDIA Cosmos-Reason2<br>
+    FlashBack &mdash; Rewinding Fire to Its Origin with NVIDIA Cosmos-Reason2<br>
     {data.get('model','Cosmos-Reason2-2B')} | {len(valid)} scene(s) | {total_time:.0f}s inference<br>
     NVIDIA Cosmos Cookoff 2026
 </div>
@@ -291,7 +291,7 @@ new Chart(document.getElementById('bar'),{{
 
 def main():
     print("=" * 60)
-    print("FireTrace Dashboard Generator")
+    print("FlashBack Dashboard Generator")
     print("=" * 60)
 
     if not RESULTS_PATH.exists():

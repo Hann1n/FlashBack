@@ -1,4 +1,4 @@
-"""FireTrace: FiftyOne-based fire origin tracing demo.
+"""FlashBack: FiftyOne-based fire origin tracing demo.
 
 Creates a FiftyOne dataset with fire scene frames annotated with:
 - Fire origin keypoint
@@ -174,7 +174,7 @@ def export_representative_frames(results_data=None):
 
 
 def build_firetrace_dataset():
-    """Build FiftyOne dataset for FireTrace fire origin analysis."""
+    """Build FiftyOne dataset for FlashBack fire origin analysis."""
 
     print("  Loading results...")
     if not RESULTS_PATH.exists():
@@ -300,7 +300,7 @@ def build_firetrace_dataset():
 
     # Add dataset description
     dataset.description = (
-        "FireTrace: Fire Origin Tracing with Cosmos-Reason2. "
+        "FlashBack: Fire Origin Tracing with Cosmos-Reason2. "
         "Each sample is a frame from fire surveillance footage. "
         "The 'fire_origin' keypoint shows the predicted ignition point. "
         "The 'spread_direction' polylines show predicted fire/smoke spread. "
@@ -365,7 +365,7 @@ def build_firetrace_video_dataset():
     dataset.add_samples(samples)
     dataset.persistent = True
     dataset.description = (
-        "FireTrace video-level results. Each sample is a full scene video "
+        "FlashBack video-level results. Each sample is a full scene video "
         "with Cosmos-Reason2 fire detection predictions and physics reasoning."
     )
 
@@ -401,7 +401,7 @@ def build_origin_overlay_dataset():
     dataset.add_samples(samples)
     dataset.persistent = True
     dataset.description = (
-        "FireTrace annotated images: origin markers and temporal progression strips."
+        "FlashBack annotated images: origin markers and temporal progression strips."
     )
 
     print(f"    Dataset 'firetrace_overlays' created with {len(dataset)} samples")
@@ -410,7 +410,7 @@ def build_origin_overlay_dataset():
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description="FireTrace FiftyOne Demo")
+    parser = argparse.ArgumentParser(description="FlashBack FiftyOne Demo")
     parser.add_argument("--launch", action="store_true", help="Launch FiftyOne app")
     parser.add_argument("--port", type=int, default=5151)
     parser.add_argument("--dataset", type=str, default="all",
@@ -419,7 +419,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 60)
-    print("FireTrace: FiftyOne Dataset Builder")
+    print("FlashBack: FiftyOne Dataset Builder")
     print("=" * 60)
 
     datasets = {}
@@ -443,7 +443,7 @@ def main():
             datasets["firetrace_overlays"] = ds
 
     # Summary
-    print(f"\n  Available FireTrace datasets:")
+    print(f"\n  Available FlashBack datasets:")
     for name in fo.list_datasets():
         if "firetrace" in name:
             ds = fo.load_dataset(name)

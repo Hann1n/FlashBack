@@ -1,4 +1,4 @@
-"""FireTrace: Fire origin tracking video with optical flow.
+"""FlashBack: Fire origin tracking video with optical flow.
 
 Tracks the fire origin point across ALL frames using Lucas-Kanade
 optical flow. As the camera moves, the origin marker follows naturally.
@@ -226,7 +226,7 @@ def draw_hud(frame, scene_id, gt_class, pred, frame_idx, total_frames):
     """Draw heads-up display."""
     h, w = frame.shape[:2]
     lines = [
-        f"FireTrace | Scene {scene_id}",
+        f"FlashBack | Scene {scene_id}",
         f"GT: {gt_class} | Pred: {pred.get('classification', '?')}",
         f"Origin: {str(pred.get('fire_origin', 'N/A'))[:45]}",
         f"Severity: {pred.get('severity', '?')} | Urgency: {pred.get('urgency', '?')}",
@@ -299,7 +299,7 @@ def create_metrics_card(metrics, duration_sec=4):
     for i in range(total):
         frame = np.full((H, W, 3), BG_COLOR, dtype=np.uint8)
         cv2.rectangle(frame, (0, 0), (W, 4), ACCENT, -1)
-        cv2.putText(frame, "FireTrace Results", (100, 100), FONT_BOLD, 1.2, WHITE, 2, cv2.LINE_AA)
+        cv2.putText(frame, "FlashBack Results", (100, 100), FONT_BOLD, 1.2, WHITE, 2, cv2.LINE_AA)
         card_w, card_h = 380, 140
         total_w = len(items) * card_w + (len(items) - 1) * 30
         sx = (W - total_w) // 2
@@ -452,7 +452,7 @@ def build_tracked_scene_video(scene_id, gt_class, pred, max_frames=180, video_pa
 
 def main():
     print("=" * 60)
-    print("FireTrace: Tracked Origin Video Generator")
+    print("FlashBack: Tracked Origin Video Generator")
     print(f"  Output: {DEMO_PATH}")
     print(f"  Resolution: {W}x{H} @ {FPS}fps")
     print(f"  Tracking: Lucas-Kanade Optical Flow")
@@ -485,8 +485,8 @@ def main():
 
     # === INTRO ===
     write(create_title_card(
-        "FireTrace",
-        "Fire Origin Tracing with Cosmos-Reason2",
+        "FlashBack",
+        "Rewinding Fire to Its Origin with Cosmos-Reason2",
         "Optical Flow Tracked | NVIDIA Cosmos Cookoff 2026", 4
     ), "Intro")
 
@@ -526,7 +526,7 @@ def main():
 
     # === OUTRO ===
     write(create_title_card(
-        "FireTrace", "Physics-Aware Fire Origin Tracing",
+        "FlashBack", "Rewinding Fire to Its Origin",
         "Built with NVIDIA Cosmos-Reason2", 3
     ), "Outro")
 
