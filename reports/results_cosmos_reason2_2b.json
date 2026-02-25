@@ -1,0 +1,143 @@
+{
+  "scenario": "fire_detection",
+  "model": "nvidia/Cosmos-Reason2-2B",
+  "total_scenes": 3,
+  "total_elapsed_sec": 297.67,
+  "metrics": {
+    "total": 2,
+    "classification_accuracy": 0.0,
+    "hazard_detection_accuracy": 1.0,
+    "fire_detection_accuracy": 0.5,
+    "smoke_detection_accuracy": 1.0,
+    "severity_accuracy": 1.0,
+    "fire_origin_reasoning_rate": 1.0,
+    "spread_direction_rate": 1.0,
+    "temporal_reasoning_rate": 1.0,
+    "urgency_accuracy": 0.5,
+    "per_class": {
+      "FLAME": {
+        "total": 1,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "SMOKE": {
+        "total": 1,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "NORMAL": {
+        "total": 0,
+        "correct": 0,
+        "accuracy": 0.0
+      }
+    }
+  },
+  "results": [
+    {
+      "scene_id": "0087",
+      "gt_class": "FLAME",
+      "n_frames": 360,
+      "video_path": "D:\\Program Files\\isaacsim\\cookbook\\firetrace\\data\\fire_videos\\0087_FL.mp4",
+      "prediction": {
+        "classification": "FLAME|SMOKE",
+        "fire_detected": true,
+        "smoke_detected": true,
+        "severity": "HIGH",
+        "confidence": 0.95,
+        "fire_stage": "FULLY_DEVELOPED",
+        "fire_origin": "bottom-left corner of the greenhouse structure",
+        "spread_direction": "outward and upward",
+        "convection_pattern": "heat and smoke rising and accumulating at the top",
+        "temporal_progression": "flames intensify and spread rapidly across the greenhouse structure, with smoke density increasing over time, indicating a growing fire. The fire's progression suggests a rapid spread from the initial ignition point, with flames reaching high into the structure and smoke rising and accumulating at the top. The presence of a fire extinguisher indicates an attempt to control the blaze, but the intensity of the fire suggests it is not easily contained.",
+        "urgency": "CRITICAL",
+        "visual_observations": "bright orange flames consuming the plastic sheeting and metal frames, thick dark smoke rising, and a fire extinguisher nearby",
+        "physics_reasoning": "the flames are spreading outward and upward due to heat and the structure's materials, while the smoke is rising and accumulating at the top, which is typical for a fully developed fire. The fire's origin is likely near the base where fuel sources are concentrated, and the spread direction is outward, consistent with the heat-driven convection pattern."
+      },
+      "reasoning": "Okay, let's break this down. The video shows a large greenhouse structure with intense flames and thick smoke. The fire is spreading rapidly, with bright orange flames consuming the plastic sheeting and metal frames. The smoke is dark and dense, indicating a significant amount of burning material. The camera pans around the scene, showing the extent of the damage. The fire appears to be in its growth phase, with flames reaching high into the greenhouse. The presence of a fire extinguisher suggests an attempt to control the blaze, but the intensity indicates it's not easily contained. The surrounding area is barren, with no visible vegetation or people, emphasizing the isolation of the scene. The fire's progression suggests it could pose a threat to nearby structures or the environment. The flames are moving outward, likely due to the heat and the structure's materials, and the smoke is rising and accumulating at the top, which is typical for a fully developed fire. The fire's origin point is probably near the base where the fuel source (plastic, wood, etc.) is concentrated, and the spread direction is outward, with the convection pattern being upward and outward due to the heat. The urgency is critical, requiring immediate response to prevent further spread or collapse.",
+      "evaluation": {
+        "valid": true,
+        "gt_class": "FLAME",
+        "gt_has_fire": true,
+        "gt_has_smoke": false,
+        "pred_class": "FLAME|SMOKE",
+        "pred_fire": true,
+        "pred_smoke": true,
+        "pred_severity": "HIGH",
+        "pred_fire_origin": "bottom-left corner of the greenhouse structure",
+        "pred_spread_direction": "outward and upward",
+        "pred_convection_pattern": "heat and smoke rising and accumulating at the top",
+        "pred_temporal_progression": "flames intensify and spread rapidly across the greenhouse structure, with smoke density increasing over time, indicating a growing fire. The fire's progression suggests a rapid spread from the initial ignition point, with flames reaching high into the structure and smoke rising and accumulating at the top. The presence of a fire extinguisher indicates an attempt to control the blaze, but the intensity of the fire suggests it is not easily contained.",
+        "pred_urgency": "CRITICAL",
+        "class_correct": false,
+        "fire_correct": true,
+        "smoke_correct": true,
+        "severity_correct": true,
+        "hazard_correct": true,
+        "has_origin": true,
+        "has_spread": true,
+        "has_temporal": true,
+        "urgency_appropriate": false
+      },
+      "elapsed_sec": 68.28
+    },
+    {
+      "scene_id": "0096",
+      "gt_class": "SMOKE",
+      "n_frames": 360,
+      "video_path": "D:\\Program Files\\isaacsim\\cookbook\\firetrace\\data\\fire_videos\\0096_SM.mp4",
+      "prediction": {
+        "classification": "FLAME|SMOKE",
+        "fire_detected": true,
+        "smoke_detected": true,
+        "severity": "MEDIUM",
+        "confidence": 0.95,
+        "fire_stage": "FULLY_DEVELOPED",
+        "fire_origin": "center of the building",
+        "spread_direction": "upward and outward",
+        "convection_pattern": "heat-driven upward and outward spread of smoke and flames",
+        "temporal_progression": "smoke begins as a small cloud and grows denser, indicating the fire is spreading and intensifying over time",
+        "urgency": "EVACUATE",
+        "visual_observations": "thick, gray smoke rising from a damaged building, with vegetation around it affected by the smoke",
+        "physics_reasoning": "the smoke's upward and outward spread, along with the building's structural damage, suggests a fully developed fire with ongoing combustion. The smoke's increasing density indicates the fire is spreading and intensifying, requiring immediate action."
+      },
+      "reasoning": "Okay, let's break this down. The video shows a rural area with trees and shrubs, and there's a building in the middle ground that's partially engulfed in smoke. The smoke is thick and gray, rising from the building, which has a damaged roof. The surrounding vegetation is dense, with tall trees and bushes. The sky is overcast, which might contribute to the visibility of the smoke.\n\nIn the first frame, the smoke is just starting to billow from the building. By the second frame, the smoke has expanded significantly, covering more of the building. The third frame shows the smoke continuing to rise, and the fourth frame indicates that the fire is still active, with the smoke growing denser. The building's structure is visibly damaged, with parts of it missing or collapsed. The surrounding trees and shrubs are also affected by the smoke, with some branches bending or falling.\n\nThe camera angle is fixed, providing a wide view of the scene. The smoke's movement suggests that the fire is spreading upwards and outwards. The convection pattern shows the smoke being pushed upward by the heat, which is typical in a fire. The fire's progression from a small smoke cloud to a larger, more dense plume indicates that the fire is likely in its growth or fully developed stage. The building's damage and the extent of the smoke suggest that the fire is ongoing and not yet under control.\n\nThe trees and shrubs around the building are also affected, with some branches bending or falling due to the heat and smoke. This indicates that the fire is not only affecting the building but also the surrounding vegetation. The smoke's color is gray, which is common in a fully developed fire where the flames have burned through the dry materials in the building. The density of the smoke increasing over time suggests that the fire is getting stronger, possibly due to the accumulation of unburned fuel or the continued burning of the building's structure.\n\nThe overcast sky might be contributing to the visibility of the smoke, making it harder to see the exact source of the fire. However, the progression of the smoke from a small cloud to a larger, more dense plume still points towards an active fire. The fact that the smoke is rising and spreading outwards indicates that the fire is not localized to a single point but is spreading across the area. This could mean that the fire has reached a critical stage, requiring immediate emergency response to prevent further damage or escalation.\n\nIn summary, the video shows a rural area with a building in the middle ground that's partially engulfed in smoke. The smoke is thick and gray, rising from the building, which is visibly damaged. The surrounding vegetation is affected by the smoke, with some branches bending or falling. The camera angle is fixed, providing a wide view of the scene. The smoke's movement suggests that the fire is spreading upwards and outwards. The building's structure is damaged, and the smoke is getting denser over time. The fire is likely in its growth or fully developed stage, with the smoke indicating that the fire is ongoing and not yet under control.",
+      "evaluation": {
+        "valid": true,
+        "gt_class": "SMOKE",
+        "gt_has_fire": false,
+        "gt_has_smoke": true,
+        "pred_class": "FLAME|SMOKE",
+        "pred_fire": true,
+        "pred_smoke": true,
+        "pred_severity": "MEDIUM",
+        "pred_fire_origin": "center of the building",
+        "pred_spread_direction": "upward and outward",
+        "pred_convection_pattern": "heat-driven upward and outward spread of smoke and flames",
+        "pred_temporal_progression": "smoke begins as a small cloud and grows denser, indicating the fire is spreading and intensifying over time",
+        "pred_urgency": "EVACUATE",
+        "class_correct": false,
+        "fire_correct": false,
+        "smoke_correct": true,
+        "severity_correct": true,
+        "hazard_correct": true,
+        "has_origin": true,
+        "has_spread": true,
+        "has_temporal": true,
+        "urgency_appropriate": true
+      },
+      "elapsed_sec": 91.74
+    },
+    {
+      "scene_id": "0077",
+      "gt_class": "NORMAL",
+      "n_frames": 360,
+      "video_path": "D:\\Program Files\\isaacsim\\cookbook\\firetrace\\data\\fire_videos\\0077_NONE.mp4",
+      "prediction": null,
+      "reasoning": "Okay, let's break this down. The video shows a firefighter on a fire truck spraying a powerful stream of water onto a building's roof. The water is directed at a red-roofed structure, and there's a lot of mist or steam coming off the nozzle, which suggests the water is hitting something hot or burning. The firefighter is wearing full protective gear, including a helmet with a breathing apparatus, which is typical for handling high-intensity fires.\n\nLooking at the surroundings, there are industrial elements like pipes, a chimney, and a red truck parked nearby. The background includes tall residential buildings, so this is likely an urban area. The sky is overcast, which might mean the weather isn't ideal for firefighting, but the focus is on the fire being controlled.\n\nThe key elements here are the water stream, the mist/steam, and the structure being targeted. The water is being used to cool the structure, which is a common technique in fire suppression to prevent the fire from spreading. The fact that the water is coming from a hose attached to the fire truck and is directed at the roof indicates that the fire might be on the roof or nearby structures. The presence of the chimney and the industrial setting suggests that this could be an industrial or commercial building.\n\nNow, considering the fire's stage. If the water is being sprayed at the roof, and there's a lot of steam, it's possible that the fire is in its growth or fully developed phase. The steam rising from the nozzle could be due to the heat from the fire causing moisture to evaporate, which is a common occurrence when water is used on a fire. The direction of the water stream is important here. If the water is coming from the left side of the frame, that would suggest the fire is on the left side of the building. The water is being aimed at the roof, which is a common place where fires start to spread quickly, especially in industrial areas. The fact that the firefighter is on a fire truck elevated on the roof might mean that the fire is close enough to the roof that they need to be on it to spray effectively.\n\nThe smoke or flame detection would be indicated by the mist/steam from the nozzle. The color of the smoke isn't specified, but the presence of steam suggests that the water is interacting with the fire, which could be producing steam. The shape of the water stream is wide and directed, which is typical for firefighting efforts to cover as much area as possible. The speed of the water stream might also be a factor in how quickly the fire is being suppressed.\n\nThe fire origin point can be estimated based on the direction of the water stream and the structure being targeted. If the water is coming from the left side of the frame and the structure is in the center, the fire is likely on the left side of the building. The fact that the firefighter is on the roof and the water is directed at the roof suggests that the fire is on the roof, which is a common location for fires to start in industrial areas. The presence of the chimney and the industrial setting supports the idea that this could be an industrial building with a fire on the roof.\n\nThe urgency of the situation would depend on how quickly the fire is being controlled. The presence of the water stream and the fact that the firefighter is actively spraying suggests that the fire is under control, but the steam indicates that the fire is still active. If the fire were in its incipient stage, the water might not be as effective, and the steam might not be as noticeable. However, the combination of the active water stream and the steam suggests that the fire is in its growth or fully developed phase, requiring immediate attention.\n\nIn summary, the video shows a firefighter spraying water on a building's roof, with steam or mist visible from the nozzle. The water is being used to suppress the fire, which is likely on the roof or nearby structures. The direction of the water stream and the presence of industrial elements suggest that the fire is on the left side of the building, and the urgency is moderate to high, requiring immediate response.",
+      "evaluation": {
+        "valid": false
+      },
+      "elapsed_sec": 129.57
+    }
+  ]
+}

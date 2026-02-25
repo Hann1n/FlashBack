@@ -1,0 +1,27 @@
+# 대용량 데이터 (별도 다운로드)
+data/
+
+# reports 내 대용량 파일 (MP4, HTML)
+reports/*.mp4
+reports/*.html
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.eggs/
+*.egg-info/
+
+# 환경
+.env
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
