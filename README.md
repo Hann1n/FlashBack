@@ -2,9 +2,9 @@
 
 <br>
 
-# 🔥 FlashBack
+# 🔥 FlashBack — Rewinding Fire to Its Origin
 
-**⏪ Rewinding Fire to Its Origin**
+**⏪ Physics-Aware Fire Origin Tracing with NVIDIA Cosmos-Reason2**
 
 [![NVIDIA Cosmos](https://img.shields.io/badge/NVIDIA-Cosmos--Reason2-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://build.nvidia.com/nvidia/cosmos-reason2)
 [![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
@@ -13,8 +13,10 @@
 
 <br>
 
-An AI system that **physically traces fire back to its origin** from surveillance footage.
+An AI system that **physically traces fire back to its origin** from surveillance footage,
 <br>
+powered by **NVIDIA Cosmos-Reason2**'s physical reasoning to understand combustion, convection, and smoke dynamics.
+<br><br>
 While conventional fire detection asks *"Is there a fire?"*,
 <br>
 FlashBack answers ***"Where did it start, and how did it spread?"*** 🎯
