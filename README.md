@@ -25,7 +25,7 @@ FlashBack은 ***"불이 어디서 시작되어, 어떻게 퍼졌는가?"*** 를 
 
 ## Demo
 
-https://github.com/Hann1n/FlashBack/raw/master/demo/demo_compressed.mp4
+<video src="https://github.com/Hann1n/FlashBack/raw/master/demo/demo_compressed.mp4" controls autoplay muted loop width="100%"></video>
 
 <br>
 
