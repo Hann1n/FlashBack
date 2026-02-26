@@ -1,0 +1,8 @@
+# FlashBack: Rewinding Fire to Its Origin with Cosmos-Reason2
+# Install PyTorch first: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+
+transformers>=4.52.0
+accelerate>=1.6.0
+av>=14.0.0
+opencv-python>=4.10.0
+numpy>=1.26.0
