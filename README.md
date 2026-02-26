@@ -2,9 +2,9 @@
 
 <br>
 
-# FlashBack
+# 🔥 FlashBack
 
-**Rewinding Fire to Its Origin**
+**⏪ Rewinding Fire to Its Origin**
 
 [![NVIDIA Cosmos](https://img.shields.io/badge/NVIDIA-Cosmos--Reason2-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://build.nvidia.com/nvidia/cosmos-reason2)
 [![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
@@ -17,29 +17,29 @@ An AI system that **physically traces fire back to its origin** from surveillanc
 <br>
 While conventional fire detection asks *"Is there a fire?"*,
 <br>
-FlashBack answers ***"Where did it start, and how did it spread?"***
+FlashBack answers ***"Where did it start, and how did it spread?"*** 🎯
 
 <br>
 
 </div>
 
-## Demo
+## 🎬 Demo
 
 https://github.com/user-attachments/assets/6f301e0e-a40b-47d1-bcfa-d846151155a1
 
 <br>
 
-## How It Works
+## ⚙️ How It Works
 
 FlashBack operates in **three stages**, leveraging Cosmos-Reason2 as a physics-aware video reasoning engine:
 
 ```mermaid
 flowchart LR
-    A["Surveillance<br/>Video"] -->|"fps=1<br/>sampling"| B["Cosmos-Reason2<br/>Physics-Aware<br/>Reasoning"]
-    B -->|"(x, y)<br/>coordinates"| C["Origin Point<br/>+ Spread Direction"]
-    B --> D["Chain-of-Thought<br/>Combustion Physics<br/>Convection Patterns<br/>Smoke Dynamics"]
-    C --> E["Lucas-Kanade<br/>Optical Flow<br/>Tracking"]
-    E --> F["Output<br/>Video + Image<br/>Dashboard"]
+    A["🎥 Surveillance<br/>Video"] -->|"fps=1<br/>sampling"| B["🧠 Cosmos-Reason2<br/>Physics-Aware<br/>Reasoning"]
+    B -->|"(x, y)<br/>coordinates"| C["📍 Origin Point<br/>+ Spread Direction"]
+    B --> D["💭 Chain-of-Thought<br/>Combustion Physics<br/>Convection Patterns<br/>Smoke Dynamics"]
+    C --> E["👁️ Lucas-Kanade<br/>Optical Flow<br/>Tracking"]
+    E --> F["📊 Output<br/>Video + Image<br/>Dashboard"]
 
     style A fill:#2d2d2d,stroke:#76B900,color:#fff
     style B fill:#76B900,stroke:#333,color:#fff
@@ -51,7 +51,7 @@ flowchart LR
 
 <br>
 
-### Stage 1 — Physics-Aware Prompting
+### 🔬 Stage 1 — Physics-Aware Prompting
 
 Cosmos-Reason2 is prompted as a **fire physics expert**. The model analyzes video frame-by-frame, performing Chain-of-Thought reasoning grounded in combustion physics.
 
@@ -59,52 +59,52 @@ Cosmos-Reason2 is prompted as a **fire physics expert**. The model analyzes vide
 > *The origin is at the lower section where fuel sources are concentrated, spreading upward via thermal convection."*
 > — Cosmos-Reason2 CoT reasoning example
 
-### Stage 2 — Coordinate-Based Origin Tracing
+### 📍 Stage 2 — Coordinate-Based Origin Tracing
 
 The model outputs the fire origin as **normalized coordinates (x, y)**. It simultaneously infers both a textual description (e.g., "lower-left of the greenhouse") and precise coordinates (0.25, 0.75), which are overlaid on the original frame as an **origin marker + spread direction arrows**.
 
-### Stage 3 — Optical Flow Tracking
+### 👁️ Stage 3 — Optical Flow Tracking
 
 **Lucas-Kanade optical flow** tracks the origin coordinates across all frames. Even with camera movement, the origin marker stays locked to the correct position, enabling real-time visualization of fire propagation in the demo video.
 
 <br>
 
-### Physics Reasoning Principles
+### 🧪 Physics Reasoning Principles
 
 | Principle | What the Model Analyzes | How It Traces the Origin |
 |:----------|:------------------------|:-------------------------|
-| **Convection** | Rising hot air currents, smoke transport paths | Below smoke accumulation point = origin |
-| **Combustion** | Fuel density vs. flame intensity | Identify initial fuel concentration |
-| **Propagation** | Heat-transfer-driven outward spread | Reverse-trace from the spread center |
-| **Smoke Color** | Smoke color → burning material type | Infer origin location + fuel source |
-| **Temporal** | Ignition → Growth → Flashover → Decay | Reverse direction from frame changes |
+| 🌡️ **Convection** | Rising hot air currents, smoke transport paths | Below smoke accumulation point = origin |
+| 🔥 **Combustion** | Fuel density vs. flame intensity | Identify initial fuel concentration |
+| 💨 **Propagation** | Heat-transfer-driven outward spread | Reverse-trace from the spread center |
+| 🌫️ **Smoke Color** | Smoke color → burning material type | Infer origin location + fuel source |
+| ⏱️ **Temporal** | Ignition → Growth → Flashover → Decay | Reverse direction from frame changes |
 
 <br>
 
-## Results
+## 📈 Results
 
-> **Cosmos-Reason2-2B** &nbsp;|&nbsp; 11 scenes &nbsp;|&nbsp; FLAME 5 / SMOKE 2 / NORMAL 4
+> **Cosmos-Reason2-2B / 8B** &nbsp;|&nbsp; 11 scenes &nbsp;|&nbsp; FLAME 5 / SMOKE 2 / NORMAL 4
 
 | Metric | Score |
 |:-------|------:|
-| Fire Origin Tracing | **100%** |
-| Temporal Reasoning | **100%** |
-| Spread Direction | **85.7%** |
+| 🎯 Fire Origin Tracing | **100%** |
+| ⏱️ Temporal Reasoning | **100%** |
+| ↗️ Spread Direction | **85.7%** |
 
 <br>
 
-## Origin Visualization
+## 🖼️ Origin Visualization
 
 <table>
 <tr>
-<td width="50%"><img src="assets/origin_flame.jpg" width="100%"><br><sub><b>Sample1 — FLAME</b> · Fire origin + spread direction in greenhouse</sub></td>
-<td width="50%"><img src="assets/origin_smoke.jpg" width="100%"><br><sub><b>Sample2 — SMOKE</b> · Reverse-tracing origin from smoke dispersion</sub></td>
+<td width="50%"><img src="assets/origin_flame.jpg" width="100%"><br><sub><b>🔥 Sample1 — FLAME</b> · Fire origin + spread direction in greenhouse</sub></td>
+<td width="50%"><img src="assets/origin_smoke.jpg" width="100%"><br><sub><b>🌫️ Sample2 — SMOKE</b> · Reverse-tracing origin from smoke dispersion</sub></td>
 </tr>
 </table>
 
 <br>
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 git clone https://github.com/Hann1n/FlashBack.git
@@ -116,63 +116,63 @@ pip install -r requirements.txt
 ```
 
 ```bash
-# Full pipeline
+# 🔄 Full pipeline
 python run.py
 
 # Or step by step
-python src/detection.py          # Cosmos-Reason2 inference (GPU)
-python src/visualize.py          # Origin overlay images
-python src/dashboard.py          # HTML dashboard
-python src/video.py              # Demo video with optical flow
-streamlit run src/app.py         # Interactive dashboard
+python -m src.core.detection      # 🧠 Cosmos-Reason2 inference (2B/8B, GPU)
+python -m src.core.visualize      # 🖼️ Origin overlay images
+python -m src.ui.dashboard        # 📊 HTML dashboard
+python -m src.core.video           # 🎬 Demo video with optical flow
+streamlit run src/ui/app.py       # 🌐 Interactive dashboard
 ```
 
 <br>
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 FlashBack/
-├── run.py                         # Pipeline entry point
-├── src/
+├── 🚀 run.py                      # Pipeline entry point
+├── 📂 src/
 │   ├── config.py                  # Centralized path configuration
-│   ├── core/                      # Inference & logic
+│   ├── 🧠 core/                   # Inference & logic
 │   │   ├── inference.py           # Cosmos-Reason2 model wrapper
 │   │   ├── detection.py           # Fire detection + origin inference
 │   │   ├── new_data.py            # New dataset inference pipeline
 │   │   ├── visualize.py           # Origin marker visualization
 │   │   └── video.py               # Demo video (optical flow tracking)
-│   ├── ui/                        # Dashboards & visualization
+│   ├── 🖥️ ui/                     # Dashboards & visualization
 │   │   ├── app.py                 # Streamlit interactive dashboard
 │   │   ├── dashboard.py           # Standalone HTML dashboard
 │   │   └── fiftyone_builder.py    # FiftyOne dataset builder
-│   └── utils/                     # Shared utilities
+│   └── 🔧 utils/                  # Shared utilities
 │       └── common.py              # imread_unicode, origin helpers
-├── data/                          # Local datasets (download separately)
-├── reports/                       # Inference results (JSON)
-├── demo/                          # Demo video
-├── assets/                        # README images
+├── 📂 data/                       # Local datasets (download separately)
+├── 📂 reports/                    # Inference results (JSON)
+├── 🎬 demo/                       # Demo video
+├── 🖼️ assets/                     # README images
 ├── requirements.txt
 └── README.md
 ```
 
 <br>
 
-## Technical Stack
+## 🛠️ Technical Stack
 
 | Component | Technology |
 |:----------|:-----------|
-| **Model** | Cosmos-Reason2-2B (Qwen3VL) |
-| **Tracking** | Lucas-Kanade Optical Flow |
-| **Video** | PyAV backend (Windows FFmpeg workaround) |
-| **Inference** | fps=1, temp=0.6, CoT reasoning enabled |
-| **Visualization** | OpenCV, Plotly, Chart.js, Streamlit |
+| 🧠 **Model** | Cosmos-Reason2-2B / 8B (Qwen3VL) |
+| 👁️ **Tracking** | Lucas-Kanade Optical Flow |
+| 🎥 **Video** | PyAV backend (Windows FFmpeg workaround) |
+| ⚡ **Inference** | fps=1, temp=0.6, CoT reasoning enabled |
+| 📊 **Visualization** | OpenCV, Plotly, Chart.js, Streamlit |
 
 <br>
 
 <div align="center">
 
-Built for [NVIDIA Cosmos Cookoff 2026](https://www.nvidia.com/en-us/ai/cosmos-cookoff/)
+Built with 💚 for [NVIDIA Cosmos Cookoff 2026](https://www.nvidia.com/en-us/ai/cosmos-cookoff/)
 <br>
 Uses [Cosmos-Reason2](https://build.nvidia.com/nvidia/cosmos-reason2) under NVIDIA Open Model License
 
