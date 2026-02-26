@@ -25,7 +25,7 @@ FlashBack은 ***"불이 어디서 시작되어, 어떻게 퍼졌는가?"*** 를 
 
 ## Demo
 
-https://github.com/Hann1n/flashback/raw/master/demo/demo.mp4
+https://github.com/Hann1n/FlashBack/raw/master/demo/demo_compressed.mp4
 
 <br>
 
@@ -130,8 +130,8 @@ Cosmos-Reason2를 **화재 물리학 전문가**로 프롬프팅합니다.
 ## Quick Start
 
 ```bash
-git clone https://github.com/Hann1n/flashback.git
-cd flashback
+git clone https://github.com/Hann1n/FlashBack.git
+cd FlashBack
 
 python -m venv .venv && .venv\Scripts\activate
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
