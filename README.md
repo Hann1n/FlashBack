@@ -6,10 +6,10 @@
 
 **⏪ Physics-Aware Fire Origin Tracing with NVIDIA Cosmos-Reason2**
 
-[![NVIDIA Cosmos](https://img.shields.io/badge/NVIDIA-Cosmos--Reason2-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://build.nvidia.com/nvidia/cosmos-reason2)
+[![NVIDIA Cosmos](https://img.shields.io/badge/NVIDIA-Cosmos--Reason2-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](https://docs.nvidia.com/cosmos/latest/reason2/index.html)
 [![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-CUDA_12.4-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
-[![Cookoff](https://img.shields.io/badge/Cosmos_Cookoff-2026-FF6F00?style=for-the-badge)](https://www.nvidia.com/en-us/ai/cosmos-cookoff/)
+[![Cookoff](https://img.shields.io/badge/Cosmos_Cookoff-2026-FF6F00?style=for-the-badge)](https://luma.com/nvidia-cosmos-cookoff?tk=YSR0A6)
 
 <br>
 
@@ -174,8 +174,8 @@ FlashBack/
 
 <div align="center">
 
-Built with 💚 for [NVIDIA Cosmos Cookoff 2026](https://www.nvidia.com/en-us/ai/cosmos-cookoff/)
+Built with 💚 for [NVIDIA Cosmos Cookoff 2026](https://luma.com/nvidia-cosmos-cookoff?tk=YSR0A6)
 <br>
-Uses [Cosmos-Reason2](https://build.nvidia.com/nvidia/cosmos-reason2) under NVIDIA Open Model License
+Uses [Cosmos-Reason2](https://docs.nvidia.com/cosmos/latest/reason2/index.html) under NVIDIA Open Model License
 
 </div>
