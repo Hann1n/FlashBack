@@ -85,7 +85,7 @@ The model outputs the fire origin as **normalized coordinates (x, y)**. It simul
 
 ## 📈 Results
 
-> **Cosmos-Reason2-2B / 8B** &nbsp;|&nbsp; 11 scenes &nbsp;|&nbsp; FLAME 5 / SMOKE 2 / NORMAL 4
+> **Cosmos-Reason2-2B / 8B** &nbsp;|&nbsp; 11 scenes &nbsp;|&nbsp; FLAME 6 / SMOKE 2 / NORMAL 3
 
 | Metric | Score |
 |:-------|------:|
@@ -99,8 +99,8 @@ The model outputs the fire origin as **normalized coordinates (x, y)**. It simul
 
 <table>
 <tr>
-<td width="50%"><img src="assets/origin_flame.jpg" width="100%"><br><sub><b>🔥 Sample1 — FLAME</b> · Fire origin + spread direction in greenhouse</sub></td>
-<td width="50%"><img src="assets/origin_smoke.jpg" width="100%"><br><sub><b>🌫️ Sample2 — SMOKE</b> · Reverse-tracing origin from smoke dispersion</sub></td>
+<td width="50%"><img src="assets/origin_flame.jpg" width="100%"><br><sub><b>🔥 sample1 — FLAME</b> · Fire origin + spread direction in greenhouse</sub></td>
+<td width="50%"><img src="assets/origin_smoke.jpg" width="100%"><br><sub><b>🌫️ sample2 — SMOKE</b> · Reverse-tracing origin from smoke dispersion</sub></td>
 </tr>
 </table>
 
@@ -112,7 +112,8 @@ The model outputs the fire origin as **normalized coordinates (x, y)**. It simul
 git clone https://github.com/Hann1n/FlashBack.git
 cd FlashBack
 
-python -m venv .venv && .venv\Scripts\activate
+python -m venv .venv && source .venv/Scripts/activate  # Windows
+# source .venv/bin/activate  # Linux/macOS
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements.txt
 ```

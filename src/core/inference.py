@@ -7,7 +7,6 @@ Uses PyAV backend for video decoding (Windows-compatible).
 import json
 import re
 import time
-import warnings
 import torch
 import transformers
 from pathlib import Path
@@ -54,7 +53,7 @@ class Reason2Model:
         self.model_name = model_name
         self.model = transformers.Qwen3VLForConditionalGeneration.from_pretrained(
             model_name,
-            dtype=dtype,
+            torch_dtype=dtype,
             device_map=device_map,
             attn_implementation="sdpa",
         )

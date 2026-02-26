@@ -15,13 +15,13 @@ Data: sample1 (flame), sample2 (smoke) — 360 frames each at 30fps.
 import cv2
 import json
 import numpy as np
-import tempfile
 import time
 from pathlib import Path
 
 from src.config import (
-    PROJECT_ROOT, REPORTS_DIR, FIRE_VIDEOS_DIR, CLASS_MAP, SUBDIRS,
+    PROJECT_ROOT, REPORTS_DIR, FIRE_VIDEOS_DIR, CLASS_MAP,
 )
+from src.utils.common import imread_unicode
 from src.core.inference import Reason2Model, parse_json_response
 
 
@@ -99,13 +99,8 @@ def frames_to_video(frame_dir, output_path, fps=30):
     if not frames:
         return None
 
-    def _imread_unicode(path):
-        """Read image from Unicode path (cv2.imread fails on Korean paths)."""
-        buf = np.fromfile(str(path), dtype=np.uint8)
-        return cv2.imdecode(buf, cv2.IMREAD_COLOR)
-
     # Read first frame to get dimensions
-    first = _imread_unicode(frames[0])
+    first = imread_unicode(frames[0])
     if first is None:
         return None
     h, w = first.shape[:2]
@@ -117,7 +112,7 @@ def frames_to_video(frame_dir, output_path, fps=30):
     writer = cv2.VideoWriter(str(output_path), fourcc, fps, (w, h))
 
     for frame_path in frames:
-        img = _imread_unicode(frame_path)
+        img = imread_unicode(frame_path)
         if img is not None:
             writer.write(img)
 
@@ -140,9 +135,6 @@ def get_scene_data(scene_filter=None):
     """
     if not FIRE_VIDEOS_DIR.exists():
         return []
-
-    # Reverse lookup: "FLAME" -> "FL", etc.
-    label_to_code = {v: k for k, v in CLASS_MAP.items()}
 
     scenes = []
     for vp in sorted(FIRE_VIDEOS_DIR.glob("*.mp4")):

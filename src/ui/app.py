@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import numpy as np
 from PIL import Image
 
-from src.config import RESULTS_COMBINED, REPORTS_DIR, FIRE_FRAMES_DIR, FIRE_DATASET_DIR, SUBDIRS, CLASS_TO_CODE
+from src.config import RESULTS_COMBINED, REPORTS_DIR, FIRE_FRAMES_DIR, FIRE_DATASET_DIR, DASHBOARD_HTML
 from src.utils.common import fallback_origin_from_text
 
 CLASS_COLORS = {"FLAME": "#EF4444", "SMOKE": "#F59E0B", "NORMAL": "#22C55E"}
@@ -94,13 +94,13 @@ def main():
     section[data-testid="stSidebar"] * { color: #1F2937 !important; }
 
     /* Header */
-    .firetrace-header {
+    .flashback-header {
         background: linear-gradient(135deg, #1E40AF 0%, #7C3AED 100%);
         border-radius: 16px; padding: 28px 36px; margin-bottom: 24px;
         color: white;
     }
-    .firetrace-header h1 { margin: 0; font-size: 36px; font-weight: 800; color: white; }
-    .firetrace-header p { margin: 4px 0 0; font-size: 15px; color: rgba(255,255,255,0.85); }
+    .flashback-header h1 { margin: 0; font-size: 36px; font-weight: 800; color: white; }
+    .flashback-header p { margin: 4px 0 0; font-size: 15px; color: rgba(255,255,255,0.85); }
 
     /* Section headers */
     .section-title {
@@ -143,7 +143,7 @@ def main():
 
     # ==================== HEADER ====================
     st.markdown("""
-    <div class="firetrace-header">
+    <div class="flashback-header">
         <h1>🔥 FlashBack</h1>
         <p>Rewinding Fire to Its Origin &mdash; Physics-Aware Temporal Reasoning | NVIDIA Cosmos-Reason2</p>
     </div>
@@ -166,7 +166,7 @@ def main():
         st.markdown("---")
         st.markdown("### 🔗 Quick Links")
         st.markdown("- [FiftyOne](http://localhost:5151)")
-        st.markdown(f"- [HTML Dashboard](file:///{str(REPORTS_DIR / 'firetrace_dashboard.html')})")
+        st.markdown(f"- [HTML Dashboard](file:///{str(DASHBOARD_HTML)})")
 
     # ==================== METRICS ====================
     st.markdown('<div class="section-title">📈 Performance Overview</div>', unsafe_allow_html=True)
@@ -442,7 +442,7 @@ def main():
 
         origin_img_path = REPORTS_DIR / f"origin_{r['scene_id']}.jpg"
         temporal_path = REPORTS_DIR / f"temporal_{r['scene_id']}.jpg"
-        video_path = REPORTS_DIR / f"firetrace_{r['scene_id']}.mp4"
+        video_path = REPORTS_DIR / f"flashback_{r['scene_id']}.mp4"
 
         if origin_img_path.exists():
             media_tabs.append("Origin Overlay")

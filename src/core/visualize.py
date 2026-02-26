@@ -13,7 +13,7 @@ from pathlib import Path
 
 from src.config import (
     RESULTS_COMBINED, FIRE_FRAMES_DIR, FIRE_DATASET_DIR,
-    REPORTS_DIR, SUBDIRS, CLASS_TO_CODE,
+    REPORTS_DIR,
 )
 from src.utils.common import imread_unicode, imwrite_unicode, fallback_origin_from_text, generate_fallback_arrows
 

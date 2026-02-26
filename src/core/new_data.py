@@ -22,7 +22,7 @@ from src.core.inference import Reason2Model, parse_json_response
 MAX_VIDEO_DURATION = 30  # seconds - clip longer videos to this duration
 TARGET_WIDTH = 640       # resize for faster processing
 
-# Same prompts as fire_detection.py
+# Same prompts as detection.py
 SYSTEM_PROMPT = """You are an expert fire safety analyst with deep knowledge of combustion physics.
 You can identify fire hazards from video surveillance footage:
 - Flame detection: color temperature, shape dynamics, flickering patterns over time
@@ -461,7 +461,7 @@ def main():
 
     model.unload()
 
-    # Also merge with existing S5 results
+    # Also merge with existing base results
     merge_all_results()
 
     print("\nDone.")
@@ -506,18 +506,18 @@ def _save_results(results, output_path, model_name, elapsed):
 
 
 def merge_all_results():
-    """Merge original S5 results with new dataset results into a combined file."""
+    """Merge base results with new dataset results into a combined file."""
     combined_results = []
 
-    # Load original S5 results
-    s5_path = RESULTS_2B
-    if s5_path.exists():
-        with open(s5_path, "r", encoding="utf-8") as f:
-            s5_data = json.load(f)
-        for r in s5_data.get("results", []):
+    # Load base results
+    base_path = RESULTS_2B
+    if base_path.exists():
+        with open(base_path, "r", encoding="utf-8") as f:
+            base_data = json.load(f)
+        for r in base_data.get("results", []):
             r["source"] = "fire_samples"
             combined_results.append(r)
-        print(f"  Merged {len(s5_data.get('results', []))} original S5 results")
+        print(f"  Merged {len(base_data.get('results', []))} base results")
 
     # Load new dataset results
     new_path = RESULTS_NEW
@@ -540,7 +540,7 @@ def merge_all_results():
     spread_ok = sum(1 for r in valid if r["evaluation"].get("has_spread"))
 
     combined_data = {
-        "scenario": "firetrace_combined",
+        "scenario": "flashback_combined",
         "model": "nvidia/Cosmos-Reason2-2B",
         "total_scenes": len(combined_results),
         "metrics": {

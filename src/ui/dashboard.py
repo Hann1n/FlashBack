@@ -58,7 +58,7 @@ def generate_dashboard(data):
         oy = pred.get("origin_y", ev.get("pred_origin_y"))
         coord = f"({ox:.2f}, {oy:.2f})" if ox is not None and oy is not None else "fallback from text"
 
-        img_tag = f'<img src="{b64_origin}" alt="Origin {sid}">' if b64_origin else '<div class="placeholder">Run visualize_origin.py first</div>'
+        img_tag = f'<img src="{b64_origin}" alt="Origin {sid}">' if b64_origin else '<div class="placeholder">Run python -m src.core.visualize first</div>'
         temporal_tag = f'<img src="{b64_temporal}" alt="Temporal {sid}" style="margin-top:12px;">' if b64_temporal else ""
 
         origin_cards += f"""

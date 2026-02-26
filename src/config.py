@@ -24,7 +24,7 @@ FIRE_FRAMES_DIR = DATA_DIR / "fire_frames"
 RESULTS_COMBINED = REPORTS_DIR / "results_combined.json"
 RESULTS_2B = REPORTS_DIR / "results_cosmos_reason2_2b.json"
 RESULTS_NEW = REPORTS_DIR / "results_new_dataset.json"
-DASHBOARD_HTML = REPORTS_DIR / "firetrace_dashboard.html"
+DASHBOARD_HTML = REPORTS_DIR / "flashback_dashboard.html"
 
 # Demo output
 DEMO_VIDEO = DEMO_DIR / "demo.mp4"

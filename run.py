@@ -71,7 +71,7 @@ def main():
     print(f"\nOutputs:")
     print(f"  Origin images:  reports/origin_*.jpg")
     print(f"  Temporal strips: reports/temporal_*.jpg")
-    print(f"  Dashboard:      reports/firetrace_dashboard.html")
+    print(f"  Dashboard:      reports/flashback_dashboard.html")
 
     if args.launch:
         print(f"\n  Launching FiftyOne app...")

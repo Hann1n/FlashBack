@@ -23,7 +23,7 @@ except ImportError:
     print("ERROR: fiftyone is not installed. Run: pip install fiftyone")
     sys.exit(1)
 
-from src.config import RESULTS_COMBINED, REPORTS_DIR, FIRE_VIDEOS_DIR, FIRE_FRAMES_DIR, SUBDIRS, CLASS_TO_CODE
+from src.config import RESULTS_COMBINED, REPORTS_DIR, FIRE_VIDEOS_DIR, FIRE_FRAMES_DIR
 from src.utils.common import imread_unicode, imwrite_unicode, fallback_origin_from_text, generate_fallback_arrows
 
 
@@ -95,7 +95,7 @@ def export_representative_frames(results_data=None):
     return exported
 
 
-def build_firetrace_dataset():
+def build_flashback_dataset():
     """Build FiftyOne dataset for FlashBack fire origin analysis."""
 
     print("  Loading results...")
@@ -215,7 +215,7 @@ def build_firetrace_dataset():
             samples.append(sample)
 
     # Create dataset
-    dataset_name = "firetrace_origin"
+    dataset_name = "flashback_origin"
     dataset = fo.Dataset(dataset_name, overwrite=True)
     dataset.add_samples(samples)
     dataset.persistent = True
@@ -233,7 +233,7 @@ def build_firetrace_dataset():
     return dataset
 
 
-def build_firetrace_video_dataset():
+def build_flashback_video_dataset():
     """Build FiftyOne dataset with video samples for temporal analysis."""
     if not RESULTS_COMBINED.exists():
         return None
@@ -283,7 +283,7 @@ def build_firetrace_video_dataset():
 
         samples.append(sample)
 
-    dataset = fo.Dataset("firetrace_videos", overwrite=True)
+    dataset = fo.Dataset("flashback_videos", overwrite=True)
     dataset.add_samples(samples)
     dataset.persistent = True
     dataset.description = (
@@ -291,7 +291,7 @@ def build_firetrace_video_dataset():
         "with Cosmos-Reason2 fire detection predictions and physics reasoning."
     )
 
-    print(f"    Dataset 'firetrace_videos' created with {len(dataset)} samples")
+    print(f"    Dataset 'flashback_videos' created with {len(dataset)} samples")
     return dataset
 
 
@@ -299,7 +299,7 @@ def build_origin_overlay_dataset():
     """Build dataset from pre-generated origin visualization images."""
     origin_images = sorted(REPORTS_DIR.glob("origin_*.jpg"))
     if not origin_images:
-        print("    No origin images found. Run visualize_origin.py first.")
+        print("    No origin images found. Run python -m src.core.visualize first.")
         return None
 
     samples = []
@@ -319,14 +319,14 @@ def build_origin_overlay_dataset():
         sample.tags.append("temporal_strip")
         samples.append(sample)
 
-    dataset = fo.Dataset("firetrace_overlays", overwrite=True)
+    dataset = fo.Dataset("flashback_overlays", overwrite=True)
     dataset.add_samples(samples)
     dataset.persistent = True
     dataset.description = (
         "FlashBack annotated images: origin markers and temporal progression strips."
     )
 
-    print(f"    Dataset 'firetrace_overlays' created with {len(dataset)} samples")
+    print(f"    Dataset 'flashback_overlays' created with {len(dataset)} samples")
     return dataset
 
 
@@ -348,41 +348,41 @@ def main():
 
     if args.dataset in ("all", "frames"):
         print("\n  Building frame-level dataset (with origin keypoints)...")
-        ds = build_firetrace_dataset()
+        ds = build_flashback_dataset()
         if ds:
-            datasets["firetrace_origin"] = ds
+            datasets["flashback_origin"] = ds
 
     if args.dataset in ("all", "videos"):
         print("\n  Building video-level dataset...")
-        ds = build_firetrace_video_dataset()
+        ds = build_flashback_video_dataset()
         if ds:
-            datasets["firetrace_videos"] = ds
+            datasets["flashback_videos"] = ds
 
     if args.dataset in ("all", "overlays"):
         print("\n  Building origin overlay dataset...")
         ds = build_origin_overlay_dataset()
         if ds:
-            datasets["firetrace_overlays"] = ds
+            datasets["flashback_overlays"] = ds
 
     # Summary
     print(f"\n  Available FlashBack datasets:")
     for name in fo.list_datasets():
-        if "firetrace" in name:
+        if "flashback" in name:
             ds = fo.load_dataset(name)
             print(f"    - {name}: {len(ds)} samples")
 
     if args.launch and datasets:
         # Launch with the frame-level dataset (most interesting)
-        primary = datasets.get("firetrace_origin") or list(datasets.values())[0]
+        primary = datasets.get("flashback_origin") or list(datasets.values())[0]
         print(f"\n  Launching FiftyOne app on port {args.port}...")
         print(f"  Open http://localhost:{args.port} in your browser")
         session = fo.launch_app(primary, port=args.port)
         session.wait()
     else:
-        print(f"\n  To view: python pipelines/firetrace_fiftyone.py --launch")
+        print(f"\n  To view: python -m src.ui.fiftyone_builder --launch")
         print(f"  Or in Python:")
         print(f"    import fiftyone as fo")
-        print(f"    ds = fo.load_dataset('firetrace_origin')")
+        print(f"    ds = fo.load_dataset('flashback_origin')")
         print(f"    session = fo.launch_app(ds)")
 
     print("\nDone.")

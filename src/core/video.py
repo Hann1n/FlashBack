@@ -9,7 +9,7 @@ optical flow. As the camera moves, the origin marker follows naturally.
 4. Origin marker + spread arrows drawn per-frame at tracked position
 
 Output: demo/demo_2b.mp4, demo/demo_8b.mp4
-        reports/firetrace_sample1.mp4, firetrace_sample2.mp4
+        reports/flashback_sample1.mp4, flashback_sample2.mp4
 """
 
 import cv2
@@ -19,7 +19,7 @@ from pathlib import Path
 
 from src.config import (
     RESULTS_COMBINED, FIRE_FRAMES_DIR, FIRE_DATASET_DIR,
-    REPORTS_DIR, DEMO_VIDEO, SUBDIRS, CLASS_TO_CODE,
+    REPORTS_DIR, DEMO_VIDEO,
 )
 from src.utils.common import imread_unicode, fallback_origin_from_text, generate_spread_offsets, compute_dynamic_spread_arrows
 
@@ -567,7 +567,7 @@ def generate_demo(results_path, output_path, model_label="Cosmos-Reason2"):
             write(scene_frames, f"Scene {scene_id} ({gt_class})")
 
             # Save individual scene video
-            scene_path = REPORTS_DIR / f"firetrace_{scene_id}.mp4"
+            scene_path = REPORTS_DIR / f"flashback_{scene_id}.mp4"
             sw = cv2.VideoWriter(str(scene_path), fourcc, FPS, (W, H))
             for f in scene_frames:
                 sw.write(f)
